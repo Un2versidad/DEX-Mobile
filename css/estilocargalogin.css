@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5F5; /* Gris Claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Evitar scroll en el body */
+}
+
+.container {
+    text-align: center;
+    background-color: #FFFFFF; /* Blanco */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    height: 90vh; /* Para asegurar que ocupe casi toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin: 10px auto;
+}
+
+.title {
+    font-size: 1.5em;
+    color: #4A00E0; /* Morado Oscuro */
+    margin-bottom: 20px;
+}
+
+.continue-button {
+    background-color: #4A00E0; /* Morado Oscuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #8A2BE2; /* Morado Claro */
+}
+
+.loading-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 10px;
+    width: 0;
+    background-color: #4A00E0; /* Morado Oscuro */
+    border-radius: 25px;
+    transition: width 1s;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Estilos para el historial */
+.history-container {
+    max-height: 150px; /* Ajusta esta altura según sea necesario */
+    overflow-y: auto;
+    background-color: #F5F5F5; /* Gris Claro */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.history-item {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Media Queries para móviles */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .logo {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+
+    .title {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .continue-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .loading-bar-container {
+        margin-top: 15px;
+    }
+
+    .message {
+        font-size: 0.9em;
+        margin-top: 15px;
+    }
+
+    .history-container {
+        max-height: 120px;
+    }
+}

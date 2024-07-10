@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEX - Calculadora</title>
+  <link rel="stylesheet" href="css/EstiloINICIODEX.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      startup: {
+        ready: function() {
+          MathJax.startup.defaultReady();
+          document.getElementById("calculateButton").addEventListener("click", function() {
+            const expression = document.getElementById("expression").value;
+            const variable = document.getElementById("variable").value;
+
+            if (expression && variable) {
+              try {
+                const result = math.derivative(expression, variable).toString();
+                
+                // Display the result in the results section
+                document.getElementById("output").innerHTML = `\\(${result}\\)`;
+
+                // Add to history
+                const historyItem = document.createElement("li");
+                historyItem.innerHTML = `Expresión: ${expression} <br> Variable: ${variable} <br> Resultado: \\(${result}\\)`;
+                document.getElementById("historyList").prepend(historyItem);
+
+                // Scroll the new history item into view
+                historyItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+                // Render MathJax
+                MathJax.typesetPromise([document.getElementById("output"), historyItem]);
+              } catch (e) {
+                document.getElementById("output").innerHTML = 'Error en la expresión';
+              }
+            } else {
+              document.getElementById("output").innerHTML = 'Por favor, introduce una expresión y una variable.';
+            }
+          });
+
+          document.getElementById("toggleHistoryButton").addEventListener("click", function() {
+            const history = document.getElementById("history");
+            history.style.display = history.style.display === 'none' || history.style.display === '' ? 'block' : 'none';
+          });
+
+          document.getElementById("clearHistoryButton").addEventListener("click", function() {
+            document.getElementById("historyList").innerHTML = '';
+          });
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title" onclick="location.reload();">DEX</h1>
+    <button class="history-button" id="toggleHistoryButton">≡</button>
+  </header>
+  
+  <main class="main">
+    <section class="calculation-form">
+      <h2>Expresión:</h2>
+      <input type="text" id="expression" placeholder="x^2 + 3*x + 5 + x^3 + 4*x + 7">
+      <h2>Variable:</h2>
+      <input type="text" id="variable" placeholder="x">
+      <button id="calculateButton" class="calculate-button">Calcular Derivada</button>
+    </section>
+    
+    <section class="results">
+      <h2>Resultado:</h2>
+      <p id="output"></p>
+    </section>
+  </main>
+  <aside class="history" id="history">
+    <h2>Historial de Cálculos</h2>
+    <ul id="historyList"></ul>
+    <button class="clear-history-button" id="clearHistoryButton">Borrar Historial</button>
+  </aside>
+</body>
+</html>

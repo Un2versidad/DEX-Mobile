@@ -10,7 +10,6 @@ function loadBar(){
       if (width >= 100) {
         clearInterval(interval);
         message.textContent = '¡Carga Completa!';
-        // Redirigir a otra página después de la carga completa
         setTimeout(() => {
           window.location.href = 'INICIODEX.html';
         }, 1000);
@@ -18,5 +17,5 @@ function loadBar(){
         width++;
         loadingBar.style.width = width + '%';
       }
-    }, 3);
+    }, 35);
 } 

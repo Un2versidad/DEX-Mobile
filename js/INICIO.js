@@ -4,19 +4,13 @@ document.getElementById("calculateButton").addEventListener("click", function() 
 
   if (expression && variable) {
       const result = math.derivative(expression, variable).toString();
-      
-      // Display the result
       document.getElementById("output").innerHTML = result;
 
-      // Add to history
       const historyItem = document.createElement("li");
       historyItem.innerHTML = `Expresión: ${expression} <br> Variable: ${variable} <br> Resultado: ${result}`;
       document.getElementById("historyList").prepend(historyItem);
 
-      // Scroll the new history item into view
       historyItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
-
-      // Render MathJax
       MathJax.typeset();
   }
 });
@@ -33,6 +27,7 @@ document.getElementById("toggleHistoryButton").addEventListener("click", functio
 document.getElementById("clearHistoryButton").addEventListener("click", function() {
   document.getElementById("historyList").innerHTML = '';
 });
+
 // Mostrar la barra lateral
 const history = document.getElementById("history");
 history.style.display = "block";
@@ -48,13 +43,12 @@ historyItem.innerHTML = `Expresión: \[${expression}\] <br> Variable: \[${variab
 document.getElementById("historyList").prepend(historyItem);
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)'], ['\\[', '\\]']], // Puedes añadir otros delimitadores aquí
+    inlineMath: [['$', '$'], ['\\(', '\\)'], ['\\[', '\\]']],
     tags: 'ams'
   },
   startup: {
     ready: function() {
       MathJax.startup.defaultReady();
-      // Tu código existente aquí
     }
   }
 };

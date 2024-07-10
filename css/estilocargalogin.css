@@ -18,37 +18,17 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 400px;
-    height: 90vh; /* Para asegurar que ocupe casi toda la pantalla */
+    height: auto; /* Ajuste automático */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
 }
 
 .logo {
     width: 100px;
     height: auto;
-    margin: 10px auto;
-}
-
-.title {
-    font-size: 1.5em;
-    color: #4A00E0; /* Morado Oscuro */
-    margin-bottom: 20px;
-}
-
-.continue-button {
-    background-color: #4A00E0; /* Morado Oscuro */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.continue-button:hover {
-    background-color: #8A2BE2; /* Morado Claro */
+    margin-bottom: 20px; /* Espacio debajo del logo */
 }
 
 .loading-bar-container {
@@ -57,6 +37,8 @@ body {
     border-radius: 25px;
     margin-top: 20px;
     overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
 }
 
 .loading-bar {
@@ -73,22 +55,6 @@ body {
     color: #333;
 }
 
-/* Estilos para el historial */
-.history-container {
-    max-height: 150px; /* Ajusta esta altura según sea necesario */
-    overflow-y: auto;
-    background-color: #F5F5F5; /* Gris Claro */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.history-item {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-}
-
 /* Media Queries para móviles */
 @media (max-width: 600px) {
     .container {
@@ -99,17 +65,7 @@ body {
 
     .logo {
         width: 80px;
-        margin-bottom: 10px;
-    }
-
-    .title {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-    }
-
-    .continue-button {
-        padding: 8px 16px;
-        font-size: 0.9em;
+        margin-bottom: 15px; /* Espacio debajo del logo en pantallas más pequeñas */
     }
 
     .loading-bar-container {
@@ -119,9 +75,5 @@ body {
     .message {
         font-size: 0.9em;
         margin-top: 15px;
-    }
-
-    .history-container {
-        max-height: 120px;
     }
 }

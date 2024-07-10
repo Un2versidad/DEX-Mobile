@@ -1,5 +1,3 @@
-// cargalogin.js
-
 function loadBar(){
     const loadingBar = document.getElementById('loadingBar');
     const message = document.getElementById('message');
@@ -20,5 +18,5 @@ function loadBar(){
         width++;
         loadingBar.style.width = width + '%';
       }
-    }, 3); // Ajusta el tiempo para acelerar o desacelerar la carga
+    }, 3);
 } 

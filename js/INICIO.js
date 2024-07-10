@@ -46,3 +46,15 @@ document.getElementById("output").innerHTML = result;
 const historyItem = document.createElement("li");
 historyItem.innerHTML = `Expresión: \[${expression}\] <br> Variable: \[${variable}\] <br> Resultado: \[${result}\]`;
 document.getElementById("historyList").prepend(historyItem);
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)'], ['\\[', '\\]']], // Puedes añadir otros delimitadores aquí
+    tags: 'ams'
+  },
+  startup: {
+    ready: function() {
+      MathJax.startup.defaultReady();
+      // Tu código existente aquí
+    }
+  }
+};
